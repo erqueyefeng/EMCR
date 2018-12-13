@@ -111,6 +111,27 @@ table(data_merchants[,category_2])  #存在缺失值 1、2、3、4、5  160888  
 #**************************************************
 #data_new_merchant_transactions 新商户交易
 #************************************************
+table(data_new_merchant_transactions$authorized_flag) #只有Y
+
+sort(table(data_new_merchant_transactions[,city_id]),T) # 大部分是69 ，也有－1
+
+sort(table(data_new_merchant_transactions[,category_1]),T) # N Y 1899935   63096
+
+sort(table(data_new_merchant_transactions[,installments]),T) # 0,1 -1,2-12 999  999有2例 ，－1较多
+
+sort(table(data_new_merchant_transactions[,category_3]),T) # A      B      C   922244 836178 148687  55922，存在缺失
+
+sort(table(data_new_merchant_transactions[,merchant_category_id]),T) # 307 705较多，基本服从均匀分布
+
+sort(table(data_new_merchant_transactions[,month_lag]),T) #1,2 1027617  935414 
+
+plot(density(data_new_merchant_transactions[,purchase_amount]),xlim=c(-1,1)) #主要分布在－1，1之间，但最大值在263，需要做极端值处理
+
+sort(table(data_new_merchant_transactions[,category_2]),T) # 1,3,5,4,2  1058242,289525,259266 ,178590,65663  
+
+sort(table(data_new_merchant_transactions[,state_id]),T) # 存在－1 ，数据分布在0-24之间，分布较均匀
+
+sort(table(data_new_merchant_transactions[,subsector_id]),T) # 存在少数－1 ，数据分布在0-24之间，分布较均匀
 
 
 
